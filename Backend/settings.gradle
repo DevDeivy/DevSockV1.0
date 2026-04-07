@@ -1,2 +1,2 @@
 rootProject.name = 'Backend'
-include('authentication', 'email', 'eureka', 'gateway', 'websocket')
+include('authentication', 'email', 'eureka', 'gateway', 'websocket', 'config-server')

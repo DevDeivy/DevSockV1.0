@@ -28,10 +28,9 @@ subprojects {
     }
 
     dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-validation'
         compileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok'
-        implementation 'me.paulschwarz:spring-dotenv:4.0.0'
-
         testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     }
 
