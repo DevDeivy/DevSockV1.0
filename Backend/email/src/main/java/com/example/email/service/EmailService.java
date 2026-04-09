@@ -7,11 +7,12 @@ import com.example.email.repository.EmailRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.regex.Pattern;
 
 @Service
 @RequiredArgsConstructor
@@ -19,6 +20,7 @@ public class EmailService {
 
     private final JavaMailSender mailSender;
     private final EmailRepository emailRepository;
+    private final Pattern regexCode = Pattern.compile("^[0-9]{4}$");
 
     public void sendEmail(EmailDTO emailDTO){
         if (emailDTO == null) throw new IllegalArgumentException("Email can´t be null");
@@ -43,53 +45,40 @@ public class EmailService {
     }
 
     private String generateCode(String recipientEmail){
-        Optional<Email> recipientDetails = emailRepository.findByRecipient(recipientEmail);
-        if (recipientDetails.isPresent()){
-            Email e = recipientDetails.get();
-        if (codeUsed(e)) throw new IllegalArgumentException("the code was used");
-        }
-
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        if (recipientEmail == null) throw new IllegalArgumentException("enter valid credentials");
         Email email = new Email();
         String code = String.valueOf(ThreadLocalRandom.current().nextInt(1000, 10000));
         email.setRecipient(recipientEmail);
-        email.setCode(code);
+        email.setCode(bCryptPasswordEncoder.encode(code));
         email.setExpirationCodeTime(LocalDateTime.now().plusMinutes(3));
         email.setUsed(false);
         emailRepository.save(email);
         return code;
     }
 
-    private Boolean codeUsed(Email email){
-        return false;
+    private boolean codeUsed(Email email){
+        return email.getUsed();
     }
 
-    private Boolean codeExpired(Email email){
-        if(email.getUsed()) throw new IllegalArgumentException("the code was used");
-        if (email.getExpirationCodeTime().isBefore(LocalDateTime.now())){
-            email.setUsed(false);
-            emailRepository.save(email);
-            return true;
-        }
-        return false;
+    private boolean codeExpired(Email email){
+        return email.getExpirationCodeTime().isBefore(LocalDateTime.now());
     }
 
     public void validateCode(String recipient, String code){
-        if (recipient == null || code == null) throw new IllegalCallerException("please enter valid credentials");
-        Email email = emailRepository.findByRecipient(recipient).orElseThrow(()-> new IllegalArgumentException(recipient + "not found"));
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        if (recipient == null || code == null || !regexCode.matcher(code).matches()) throw new IllegalCallerException("please enter valid credentials");
+        Email email = emailRepository.findTopByRecipientOrderByExpirationCodeTimeDesc(recipient).orElseThrow(()-> new IllegalArgumentException(recipient + "not found"));
         if (codeExpired(email)) throw new IllegalArgumentException("the code expired");
         if (codeUsed(email)) throw new IllegalArgumentException("the code was used");
-        if (!email.getCode().equals(code)) throw new IllegalArgumentException("code invalid please try again");
+        System.out.println(email.getCode());
+        System.out.println(code);
+        if (!bCryptPasswordEncoder.matches(code, email.getCode())) throw new IllegalArgumentException("code invalid please try again");
         email.setUsed(true);
         emailRepository.save(email);
     }
 
 }
-
-
-
-
-
-
 
 
 
