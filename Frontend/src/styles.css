@@ -1,1 +1,94 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&display=swap');
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  font-family: 'Changa One', sans-serif;
+  font-weight: 100;
+}
+
+body {
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: #23deca;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+input{
+  outline: none;
+
+  &:disabled{
+    background-color: #fff;
+  }
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  display: none;
+}
+
+.wrapper {
+  background: url('../../assets/register.svg') center/cover no-repeat;
+  height: 100vh;
+  opacity: 0.9;
+  position: relative;
+  padding: 1rem;
+}
+
+
+.mat-horizontal-stepper-header.mat-step-header-empty-label .mat-step-icon{
+    background-color: #0bd6c0;
+    color: #000;
+}
+
+.mat-mdc-unelevated-button:not(:disabled){
+  background-color: transparent !important;
+  color: #e0e0e0 !important;
+}
+
+.mat-stepper-horizontal:not(.mat-stepper-animating) .mat-horizontal-stepper-content.mat-horizontal-stepper-content-current{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.component{
+  width: 60%;
+  height: 3.5rem;
+  border-radius: .6rem;
+  border: 2px solid #0bd6c0;
+  background-color: transparent;
+  color: #e0e0e0;
+  cursor: pointer;
+}
+
+.component:disabled{
+  border: 1px solid #d6d4d7;
+  cursor: auto;
+  color: #969696;
+}

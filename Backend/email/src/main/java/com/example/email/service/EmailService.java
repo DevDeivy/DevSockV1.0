@@ -71,8 +71,6 @@ public class EmailService {
         Email email = emailRepository.findTopByRecipientOrderByExpirationCodeTimeDesc(recipient).orElseThrow(()-> new IllegalArgumentException(recipient + "not found"));
         if (codeExpired(email)) throw new IllegalArgumentException("the code expired");
         if (codeUsed(email)) throw new IllegalArgumentException("the code was used");
-        System.out.println(email.getCode());
-        System.out.println(code);
         if (!bCryptPasswordEncoder.matches(code, email.getCode())) throw new IllegalArgumentException("code invalid please try again");
         email.setUsed(true);
         emailRepository.save(email);

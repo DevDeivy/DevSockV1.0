@@ -1,0 +1,20 @@
+<div class="wrapper_modal">
+  <div class="content_modal" mat-dialog-content>
+    <mat-stepper class="content_modal_steps" [linear]="true" #stepper>
+      <mat-step class="modal_steps_f" [completed]="verificated">
+        <h1 class="tittle_modal" mat-dialog-title>Ingresa tu código de verificación</h1>
+        <form [formGroup]="code" class="form_modal">
+          <input type="number" class="input_modal" formControlName="codeV">
+          <div class="btns">
+            <button class="btn" mat-flat-button (click)="codeVerificate(stepper)" [disabled]="code.invalid">Siguiente</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <p>Adiós 👋</p>
+        <button mat-button matStepperPrevious>Atrás</button>
+        <button mat-flat-button mat-dialog-close>Cerrar</button>
+      </mat-step>
+    </mat-stepper>
+  </div>
+</div>

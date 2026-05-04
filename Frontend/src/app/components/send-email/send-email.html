@@ -1,0 +1,34 @@
+<div class="wrapper">
+  <h1 class="devsock">Devsock</h1>
+  <div class="blur">
+    <div class="send-email">
+      <a class="arrow" [routerLink]="['/login']">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
+          />
+        </svg>
+      </a>
+      <div class="description">
+        <h1 class="title">Encuentra tu cuenta</h1>
+        <p>
+          Ingresa el correo electrónico asociado a tu cuenta para cambiar tu contraseña. Si tu cuenta
+          existe recibirás un código de verificación
+        </p>
+      </div>
+      <form class="form" [formGroup]="sendEmail" (ngSubmit)="sendCode()">
+        <input type="email" placeholder="Correo electrónico" class="input" formControlName="email" />
+        <button class="component" (click)="openModal()">Enviar código</button>
+      </form>
+    </div>
+  </div>
+</div>

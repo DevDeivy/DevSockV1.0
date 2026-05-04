@@ -1,0 +1,125 @@
+.devsock {
+  color: #d6d4d7;
+  position: absolute;
+}
+
+.blur {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 3rem;
+  letter-spacing: 0.1rem;
+  font-weight: 200;
+}
+
+.login {
+  width: 40rem;
+  height: 47rem;
+  background-color: #222122;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-radius: 1rem;
+  color: #d6d4d7;
+  border: 2px solid #d6d4d7;
+  box-shadow: 0 0 0.2rem rgba(255, 255, 255, 0.9);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.form .input {
+  padding: 1.2rem 0.7rem;
+  width: 75%;
+  outline: none;
+  border: 1px solid #d6d4d7;
+  border-radius: 0.4rem;
+}
+
+.btn-forgot {
+  padding: 1rem 0.5rem;
+  border-radius: 1rem;
+  border: none;
+  width: 55%;
+  cursor: pointer;
+  background-color: #fff;
+  font-size: 1.4rem;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.oauth {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 90%;
+}
+
+.oauth hr {
+  width: 100%;
+}
+
+.form-oauth {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  padding: 0 2rem;
+  align-items: center;
+
+  .github {
+    background-color: #000;
+    color: #fff;
+  }
+
+  .google {
+    border: 0.5px solid #000;
+  }
+}
+
+.form-oauth .google:hover {
+  background-color: #d6d6d6;
+}
+
+.form-oauth .github:hover {
+  background-color: #090909;
+}
+
+.form-oauth .btn-auth {
+  padding: 1rem 0.5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  gap: 0.5rem;
+}
+
+.l_google {
+  background: url('../../assets/google-g-2015.svg');
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.l_github {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #fff;
+  -webkit-mask-image: url('../../assets/github-icon.svg');
+  mask-image: url('../../assets/github-icon.svg');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+}
