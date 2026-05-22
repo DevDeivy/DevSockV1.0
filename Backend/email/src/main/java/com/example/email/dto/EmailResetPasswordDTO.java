@@ -11,5 +11,4 @@ import lombok.NoArgsConstructor;
 public class EmailResetPasswordDTO {
     @NotBlank
     private String sendEmailTo;
-    private String sender;
 }

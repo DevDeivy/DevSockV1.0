@@ -5,10 +5,10 @@ import { SendEmail } from "./send-email/send-email";
 import { Home } from "./home/home";
 
 export const rout: Routes = [
-  { path: '', component: Login },
+  { path: 'home', component: Home },
   { path: 'login', component: Login },
   { path: 'register', component: Register },
   { path: 'sendEmail', component: SendEmail },
   { path: 'home', component: Home },
-  { path: '**', redirectTo: 'Login' }
+  { path: '**', redirectTo: 'home' }
 ];

@@ -6,5 +6,6 @@ export const Endpoints = {
 
      /*user*/
      createUser: "localhost:8081/api/authentication/register",
-     deleteUser: "localhost:8081/api/authentication/"
+     deleteUser: "localhost:8081/api/authentication/",
+     resetPasswordUser: "localhost:8081/api/"
 }

@@ -1,8 +1,8 @@
 <div class="wrapper">
-    <h1 class="devsock">Devsock</h1>
+  <h1 style="cursor: pointer;" class="devsock" [routerLink]="['/home']">DevSock</h1>
     <div class="blur">
         <div class="register">
-            <h1 class="title">Unete a Devsock</h1>
+            <h2 class="title">Unete a Devsock</h2>
             <form class="form" [formGroup]="register" (ngSubmit)="registerUser()">
                 <input type="text" placeholder="Nombre" class="input" formControlName="name">
                 <input type="text" placeholder="Apellido" class="input" formControlName="lastName">

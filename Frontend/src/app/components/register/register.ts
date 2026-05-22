@@ -16,6 +16,7 @@ export class Register implements OnInit{
   register!: FormGroup;
   private _regexService = inject(RegexValidator)
   private _userService = inject(UsersService)
+  private registered = false;
 
   ngOnInit(): void {
       this.register = new FormGroup({
@@ -38,6 +39,7 @@ export class Register implements OnInit{
     }))
     .subscribe(res => {
       console.log(res);
+      this.registered = true;
     })
   }
 }

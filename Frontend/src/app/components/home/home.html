@@ -1,1 +1,53 @@
-<p>home works!</p>
+<div class="wrapper_home">
+  <header class="header_home">
+    <h1 style="cursor: pointer" class="devsock_home" [routerLink]="['/home']">DevSock</h1>
+    <button class="btn_login btn_anim" [routerLink]="['/login']">Iniciar sesión</button>
+  </header>
+
+  <main class="wrapper_content_home">
+    <div class="devsock_lg">
+      <app-devsock-logo/>
+      <img src="image.png" class="text_lg" alt="text">
+    </div>
+    <div class="main_content_wrapper">
+      <div class="main_content">
+        <h2 class="title_home">Descubre que está pasando ahora</h2>
+        <form class="form_login_home">
+          <button class="btn_home google" type="button">
+            <img src="google.svg" alt="google" class="l_google">
+            <p>Registrarse con Google</p>
+          </button>
+          <button class="btn_home github" type="button">
+            <img src="github.svg" alt="github" class="l_github">
+            <p>Registrarse con Github</p>
+          </button>
+          <div class="or">
+            <hr />
+            <p>o</p>
+            <hr />
+          </div>
+          <button class="btn_home btn_register" type="button" [routerLink]="['/register']">
+            Crear cuenta
+          </button>
+          <p class="description_cookies">
+            Al registrarte, aceptas los <a>Términos de servicio</a> y
+            <a>la Política de privacidad</a>, incluida la <a>política de Uso de Cookies</a>.
+          </p>
+        </form>
+      </div>
+      <div class="login_home_section">
+        <h3 class="login_text">¿Ya tienes una cuenta?</h3>
+        <button class="btn_home lg_btn" type="button" [routerLink]="['/login']">Inicia sesión</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p class="footer_text">
+      <a>Informacion</a> | <a>DevSock</a> | <a>Centro de Ayuda</a> | <a>Condiciones de Servicio</a> |
+      <a>Política de Privacidad</a> | <a>Política de cookies</a> | <a>Accesibilidad</a> | <a>Información de anuncios</a> | <a>Blog</a> |
+      <a>Empleos</a> | <a>Recursos para marcas</a> | <a>Publicidad</a> | <a>Desarrolladores</a> |
+      <a>Noticias</a> | <a>Configuración</a>.
+    </p>
+  </footer>
+</div>

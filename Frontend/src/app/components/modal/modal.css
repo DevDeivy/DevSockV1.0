@@ -1,75 +1,98 @@
 .wrapper_modal {
-  text-align: center;
   height: 100vh;
   width: 100%;
-  background-color: #222122;
+  background-color: var(--login-color);
 }
 
 .tittle_modal {
   font-size: 2.5rem;
   font-family: 'Changa One', sans-serif;
-  color: #d6d4d7;
+  color: var(--letter-color);
   letter-spacing: 0.1rem;
 }
 
-.content_modal {
-  width: 100%;
-  height: 100%;
-  color: #fff;
+.step2{
+  margin-bottom: 1rem;
+}
+
+.description_modal {
+  font-size: 1.2rem;
+  letter-spacing: .1rem;
+  color: var(--letter-color);
+  margin: .5rem 0 .8rem 0;
 }
 
 .content_modal_steps {
-  background-color: #222122;
-}
-
-.modal_steps_f {
-  background-color: aqua;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background-color: var(--login-color);
 }
 
 .form_modal {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 1.5rem;
-  width: 70%;
+  width: 100%;
   height: 10rem;
   border-radius: 0.5rem;
 }
 
-.input_modal {
-  width: 100%;
-  height: 100%;
-  border: none;
-  font-size: 3rem;
+.codeinput {
+  width: 80%;
+  font-size: 1.5rem;
   letter-spacing: 4rem;
-  border: 0.2rem solid #0bd6c0;
-  background-color: transparent;
-  padding: 0 1rem;
-  color: #D6D4D7;
 }
 
-.btns {
+.form_modal_step2{
   display: flex;
-  justify-content: center;
-  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;  
   width: 100%;
+  height: auto;
 }
 
 .btn {
   width: 70%;
   border-radius: .6rem;
-  border: 1px solid #0bd6c0;
-  transition: all .19s ease-in-out;
-  color: #e0e0e0;
+  border: 1px solid var(--primary-color);
+  background-color: transparent !important;
+  transition: all .1s ease-in-out;
+  color: var(--letter-color);
   cursor: pointer;
 }
 
 .btn:disabled {
-  border: 1px solid #d6d4d7;
+  border: 1px solid var(--letter-color);
   cursor: auto;
   color: #969696;
+}
+
+.btns2 {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 2rem;
+}
+
+.btns2_step {
+  border: 1px solid var(--primary-color);
+  width: 100%;
+  border-radius: 1rem;
+  margin-top: .8rem;
+}
+
+.back{
+  color: var(--letter-color) !important;
+
+}
+
+.btns2_step:disabled {
+  border: 1px solid var(--letter-color);
+  color: #949494;
+  cursor: auto;
+}
+
+.size{
+  font-size: 1.2rem;
 }

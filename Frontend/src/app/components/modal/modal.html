@@ -1,19 +1,25 @@
 <div class="wrapper_modal">
   <div class="content_modal" mat-dialog-content>
-    <mat-stepper class="content_modal_steps" [linear]="true" #stepper>
+    <mat-stepper class="content_modal_steps" [linear]="true" #stepper [animationDuration]="'300ms'">
       <mat-step class="modal_steps_f" [completed]="verificated">
         <h1 class="tittle_modal" mat-dialog-title>Ingresa tu código de verificación</h1>
-        <form [formGroup]="code" class="form_modal">
-          <input type="number" class="input_modal" formControlName="codeV">
-          <div class="btns">
-            <button class="btn" mat-flat-button (click)="codeVerificate(stepper)" [disabled]="code.invalid">Siguiente</button>
-          </div>
+        <p class="description_modal">Ingresa el código de verificación que se envio a tu correo {{data.email}} para cambiar tu contraseña.</p>
+        <form [formGroup]="code" class="form_modal" (ngSubmit)="validateCode()">
+          <input type="number" class="input codeinput" formControlName="codeV" #inputCode>
+          <button class="btn size" mat-flat-button (click)="codeVerificate(stepper)" [disabled]="code.invalid">Siguiente</button>
         </form>
       </mat-step>
       <mat-step>
-        <p>Adiós 👋</p>
-        <button mat-button matStepperPrevious>Atrás</button>
-        <button mat-flat-button mat-dialog-close>Cerrar</button>
+        <h1 class="tittle_modal step2">Cambia tu contraseña</h1>
+        <p class="description_modal">Ingresa tu nueva contraseña para seguir interactuando con tus amigos.</p>
+        <form [formGroup]="resetPassword" class="form_modal_step2" (ngSubmit)="resetPasswordStep()">
+          <input formControlName="password" type="password" class="input" placeholder="Contraseña">
+          <input formControlName="confirmPassword" type="password" class="input" placeholder="Confirmar contraseña">
+        </form>
+        <div class="btns2">
+          <button class="btns2_step back size" mat-button matStepperPrevious>Atrás</button>
+          <button class="btns2_step size" mat-flat-button mat-dialog-close [disabled]="resetPassword.invalid || confirm()">Cambiar contraseña</button>
+        </div>
       </mat-step>
     </mat-stepper>
   </div>

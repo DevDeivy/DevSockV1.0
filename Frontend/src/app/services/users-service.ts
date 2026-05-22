@@ -17,4 +17,8 @@ export class UsersService {
   createUser(user: User): Observable<Object>{
     return this.http.post(`${this._endpoints.createUser}`, user)
   }
+
+  resetPasswordUser(user: User): Observable<Object>{
+    return this.http.post(`${this._endpoints.resetPasswordUser}`, user)
+  }
 }

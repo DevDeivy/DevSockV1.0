@@ -36,9 +36,10 @@ public class EmailService {
         if (emailDTO == null) throw new IllegalArgumentException("Email can´t be null");
         String context = "your code to reset your password is: " ;
         String title = "Reset password - DevSockV1.0";
+        String sender = "developdeivy@gmail.com";
         SimpleMailMessage message = new SimpleMailMessage();
         message.setSubject(title);
-        message.setFrom(emailDTO.getSender());
+        message.setFrom(sender);
         message.setTo(emailDTO.getSendEmailTo());
         message.setText(context + generateCode(emailDTO.getSendEmailTo()));
         mailSender.send(message);

@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&display=swap');
 
+:root{
+  --letter-color: #d6d4d7;
+  --login-color: #222122;
+  --primary-color: #23deca;
+  --input-color: #e9e9e9;
+  --input-disabled: #ffffff;
+  --black-color: #000000;
+  --white-color: #ffffff;
+}
+
 html {
   box-sizing: border-box;
   font-size: 62.5%;
@@ -12,6 +22,7 @@ html {
   margin: 0;
   font-family: 'Changa One', sans-serif;
   font-weight: 100;
+  letter-spacing: .02rem;
 }
 
 body {
@@ -20,28 +31,18 @@ body {
 
 a {
   text-decoration: none;
-  color: #23deca;
+  color: var(--primary-color);
   cursor: pointer;
   &:hover {
     text-decoration: underline;
   }
 }
 
-html,
-body {
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
-}
-
 input{
   outline: none;
 
   &:disabled{
-    background-color: #fff;
+    background-color: var(--input-disabled);
   }
 }
 
@@ -51,44 +52,81 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .wrapper {
-  background: url('../../assets/register.svg') center/cover no-repeat;
+  background: url('/register.svg') center/cover no-repeat;
   height: 100vh;
   opacity: 0.9;
   position: relative;
   padding: 1rem;
 }
 
-
-.mat-horizontal-stepper-header.mat-step-header-empty-label .mat-step-icon{
-    background-color: #0bd6c0;
-    color: #000;
+.devsock {
+  color: var(--letter-color);
+  position: absolute;
 }
 
-.mat-mdc-unelevated-button:not(:disabled){
-  background-color: transparent !important;
-  color: #e0e0e0 !important;
-}
-
-.mat-stepper-horizontal:not(.mat-stepper-animating) .mat-horizontal-stepper-content.mat-horizontal-stepper-content-current{
+.blur {
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  gap: 1rem;
+  align-items: center;
+  cursor: default;
+}
+
+.title {
+  font-size: 3rem;
+  letter-spacing: 0.1rem;
 }
 
 .component{
   width: 60%;
   height: 3.5rem;
   border-radius: .6rem;
-  border: 2px solid #0bd6c0;
+  border: 2px solid var(--primary-color);
   background-color: transparent;
-  color: #e0e0e0;
+  color: var(--letter-color);
   cursor: pointer;
 }
 
 .component:disabled{
-  border: 1px solid #d6d4d7;
+  border: 2px solid var(--letter-color);
   cursor: auto;
   color: #969696;
+}
+
+.input {
+  padding: 1.2rem 0.7rem;
+  width: 75%;
+  outline: none;
+  border: 1px solid var(--letter-color);
+  border-radius: 0.4rem;
+  background-color: var(--input-color);
+}
+
+.l_google {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.l_github {
+  width: 2.5rem;
+  height: 2.5rem;
+  filter: brightness(0) invert(1);
+}
+
+
+/*modal*/
+.mat-horizontal-content-container{
+  overflow: hidden;
+  padding: 0 24px 24px 24px;
+  /* display: flex; 
+  flex-direction: column;
+  text-align: center;
+  gap: .5rem;
+  */
+}
+
+.mat-stepper-horizontal:not(.mat-stepper-animating) .mat-horizontal-stepper-content.mat-horizontal-stepper-content-current{
+  /* display: flex;
+  flex-direction: column;
+  gap: .2rem; */
 }

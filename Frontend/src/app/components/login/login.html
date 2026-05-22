@@ -1,8 +1,8 @@
 <div class="wrapper">
-    <h1 style="cursor: pointer;" class="devsock" [routerLink]="['/home']">Devsock</h1>
+    <h1 style="cursor: pointer;" class="devsock" [routerLink]="['/home']">DevSock</h1>
     <div class="blur">
         <div class="login">
-            <h1 class="title">Iniciar sesión</h1>
+            <h2 class="title">Iniciar sesión</h2>
             <form class="form" [formGroup]="login" (ngSubmit)="singIn()">
                 <input type="email" placeholder="Correo electrónico" class="input" formControlName="email">
                 <input type="password" placeholder="Contraseña" autocomplete="off" class="input" formControlName="password">
@@ -10,12 +10,14 @@
                 <a class="btn-forgot" [routerLink]="['/sendEmail']" style="color: #000;">¿Olvidaste tu contraseña?</a>
                 <p class="link">¿No tienes una cuenta? <a [routerLink]="['/register']">Regístrate</a></p>
                 <div class="oauth">
-                    <hr> o <hr>
+                    <hr>
+                    <p>o</p>
+                    <hr>
                 </div>
-                <div class="form-oauth">
-                    <button class="btn-auth google"><div class="l_google"></div>Iniciar con Google</button>
-                    <button class="btn-auth github"><div class="l_github"></div>Iniciar con Github</button>
-                </div>
+                <form class="form-oauth">
+                    <button class="btn-auth google"><img src="google.svg" alt="google" class="l_google">Iniciar con Google</button>
+                    <button class="btn-auth github"><img src="github.svg" alt="github" class="l_github">Iniciar con Github</button>
+                </form>
             </form>
         </div>
     </div>

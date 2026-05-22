@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <h1 class="devsock">Devsock</h1>
+  <h1 style="cursor: pointer;" class="devsock" [routerLink]="['/home']">DevSock</h1>
   <div class="blur">
     <div class="send-email">
       <a class="arrow" [routerLink]="['/login']">
@@ -19,7 +19,7 @@
         </svg>
       </a>
       <div class="description">
-        <h1 class="title">Encuentra tu cuenta</h1>
+        <h2 class="title">Encuentra tu cuenta</h2>
         <p>
           Ingresa el correo electrónico asociado a tu cuenta para cambiar tu contraseña. Si tu cuenta
           existe recibirás un código de verificación
@@ -27,7 +27,7 @@
       </div>
       <form class="form" [formGroup]="sendEmail" (ngSubmit)="sendCode()">
         <input type="email" placeholder="Correo electrónico" class="input" formControlName="email" />
-        <button class="component" (click)="openModal()">Enviar código</button>
+        <button class="component" (click)="openModal()" [disabled]="sendEmail.invalid">Enviar código</button>
       </form>
     </div>
   </div>

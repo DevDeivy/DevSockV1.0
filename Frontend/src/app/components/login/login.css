@@ -1,36 +1,18 @@
-.devsock {
-  color: #d6d4d7;
-  position: absolute;
-}
-
-.blur {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.title {
-  font-size: 3rem;
-  letter-spacing: 0.1rem;
-  font-weight: 200;
-}
-
 .login {
   width: 40rem;
-  height: 47rem;
-  background-color: #222122;
+  height: auto;
+  background-color: var(--login-color);
   text-align: center;
   padding: 1.5rem 1rem;
   border-radius: 1rem;
-  color: #d6d4d7;
-  border: 2px solid #d6d4d7;
+  color: var(--letter-color);
+  border: 2px solid var(--letter-color);
   box-shadow: 0 0 0.2rem rgba(255, 255, 255, 0.9);
 
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
   justify-content: center;
+  gap: 1.6rem;
 }
 
 .form {
@@ -38,14 +20,7 @@
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-}
-
-.form .input {
-  padding: 1.2rem 0.7rem;
-  width: 75%;
-  outline: none;
-  border: 1px solid #d6d4d7;
-  border-radius: 0.4rem;
+  margin: 1.6rem 0;
 }
 
 .btn-forgot {
@@ -54,7 +29,7 @@
   border: none;
   width: 55%;
   cursor: pointer;
-  background-color: #fff;
+  background-color: var(--input-color);
   font-size: 1.4rem;
 
   &:hover {
@@ -81,17 +56,19 @@
   align-items: center;
 
   .github {
-    background-color: #000;
-    color: #fff;
+    background-color: var(--black-color);
+    border-radius: 1rem;
+    color: var(--white-color);
   }
 
   .google {
-    border: 0.5px solid #000;
+    border: 0.5px solid var(--black-color);
+    border-radius: 1rem;
   }
 }
 
 .form-oauth .google:hover {
-  background-color: #d6d6d6;
+  background-color: var(--letter-color);
 }
 
 .form-oauth .github:hover {
@@ -106,20 +83,5 @@
   justify-content: center;
   cursor: pointer;
   gap: 0.5rem;
-}
-
-.l_google {
-  background: url('../../assets/google-g-2015.svg');
-  width: 2.5rem;
-  height: 2.5rem;
-}
-
-.l_github {
-  width: 2.5rem;
-  height: 2.5rem;
-  background-color: #fff;
-  -webkit-mask-image: url('../../assets/github-icon.svg');
-  mask-image: url('../../assets/github-icon.svg');
-  mask-size: contain;
-  mask-repeat: no-repeat;
+  border: none;
 }
